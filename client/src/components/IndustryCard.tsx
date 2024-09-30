@@ -1,8 +1,8 @@
-import { PreparedIndustry } from "../utils/industry";
+import { IndustryWithCompanies } from "../types/types";
 import CompanyRow from "./CompanyRow";
 
 interface IndustryCardProps {
-  industry: PreparedIndustry;
+  industry: IndustryWithCompanies;
 }
 
 function IndustryCard({ industry }: IndustryCardProps) {

@@ -1,24 +1,10 @@
-import { Company, ImageSizes } from "../types/company";
-
-export type PreparedIndustry = {
-  id: number;
-  name: string;
-  companies: PreparedCompany[];
-};
-
-export type PreparedCompany = {
-  uuid: string;
-  images: ImageSizes;
-  name: string;
-  tagline: string;
-  total_jobs_available: number;
-};
+import { Company, IndustryWithCompanies } from "../types/types";
 
 type IndustryMap = {
-  [industryId: number]: PreparedIndustry;
+  [industryId: number]: IndustryWithCompanies;
 };
 
-export const prepareIndustries = (companies: Company[]): PreparedIndustry[] => {
+export const prepareIndustries = (companies: Company[]): IndustryWithCompanies[] => {
   const industriesMap: IndustryMap = {};
 
   // prepare industry companies
@@ -41,11 +27,14 @@ export const prepareIndustries = (companies: Company[]): PreparedIndustry[] => {
   for (const industry in industriesMap) {
     const seen = new Set();
 
+    // remove duplicated companies (within industry)
     industriesMap[industry].companies = industriesMap[
       industry
     ].companies.filter((company) => {
       const isDuplicate = seen.has(company.uuid);
+
       seen.add(company.uuid);
+
       return !isDuplicate;
     });
 

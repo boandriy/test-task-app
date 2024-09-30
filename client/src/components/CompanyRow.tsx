@@ -1,9 +1,9 @@
-import { PreparedCompany } from "../utils/industry";
+import { BaseCompany } from "../types/types";
 
 const imageSize = "100x100";
 
 interface CompanyRowProps {
-  company: PreparedCompany;
+  company: BaseCompany;
 }
 
 function CompanyRow({ company }: CompanyRowProps) {

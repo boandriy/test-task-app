@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import IndustryCard from "./components/IndustryCard";
-import { Company } from "./types/company";
+import { Company } from "./types/types";
 import { companiesService } from "./services/companies";
 import { prepareIndustries } from "./utils/industry";
 

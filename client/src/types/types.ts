@@ -1,9 +1,9 @@
-export type IncomeStream = {
+type IncomeStream = {
   id: number;
   name: string;
 };
 
-export type Industry = {
+type Industry = {
   id: number;
   name: string;
 };
@@ -20,4 +20,10 @@ export type Company = {
   name: string;
   tagline: string;
   total_jobs_available: number;
+};
+
+export type BaseCompany = Omit<Company, "industries" | "income_streams">;
+
+export type IndustryWithCompanies = Industry & {
+  companies: BaseCompany[];
 };
