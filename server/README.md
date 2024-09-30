@@ -22,7 +22,7 @@ npm install
 
 ```js
 {
-  PORT=8080
+  PORT=8000
 }
 ```
 
