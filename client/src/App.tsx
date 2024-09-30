@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import IndustryCard from "./components/IndustryCard";
 import { Company } from "./types/types";
 import { companiesService } from "./services/companies";
@@ -23,11 +23,15 @@ function App() {
     fetchCompanies();
   }, [fetchCompanies]);
 
+  const industries = useMemo(() => {
+    return prepareIndustries(companies);
+  }, [companies]);
+
   return (
     <div className="bg-gray-300 min-h-screen p-10">
       {!isError ? (
         <div className="grid grid-cols-3 gap-4 items-start">
-          {prepareIndustries(companies).map((industry) => (
+          {industries.map((industry) => (
             <IndustryCard industry={industry} key={industry.id} />
           ))}
         </div>
