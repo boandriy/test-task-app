@@ -4,7 +4,9 @@ type IndustryMap = {
   [industryId: number]: IndustryWithCompanies;
 };
 
-export const prepareIndustries = (companies: Company[]): IndustryWithCompanies[] => {
+export const prepareIndustries = (
+  companies: Company[]
+): IndustryWithCompanies[] => {
   const industriesMap: IndustryMap = {};
 
   // prepare industry companies
@@ -38,7 +40,9 @@ export const prepareIndustries = (companies: Company[]): IndustryWithCompanies[]
       return !isDuplicate;
     });
 
-    industriesMap[industry].companies.sort();
+    industriesMap[industry].companies.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
   }
 
   return Object.values(industriesMap);
