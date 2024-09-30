@@ -4,6 +4,14 @@ type IndustryMap = {
   [industryId: number]: IndustryWithCompanies;
 };
 
+// Another potential solution
+// In case we have a large dataset, we could implement pagination for the getCompanies endpoint.
+// This would allow us to send requests to retrieve companies in smaller, manageable chunks,
+// rather than fetching all companies at once.
+
+// By storing the fetched data in the component state, we can sequentially make additional
+// requests until we retrieve all companies.
+
 export const prepareIndustries = (
   companies: Company[]
 ): IndustryWithCompanies[] => {
