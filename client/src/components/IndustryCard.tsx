@@ -19,7 +19,7 @@ function IndustryCard({ industry }: IndustryCardProps) {
           <span>Name</span>
           <span>Total jobs available</span>
         </div>
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-4 max-h-[224px] overflow-y-auto">
           {industry.companies.map((company) => (
             <CompanyRow company={company} key={company.uuid} />
           ))}
