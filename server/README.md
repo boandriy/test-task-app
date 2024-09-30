@@ -18,7 +18,15 @@ Server API
 npm install
 ```
 
-2. Run
+2. Create ``.env`` file
+
+```js
+{
+  PORT=8080
+}
+```
+
+3. Run
 ``` bash
 npm run dev
 ```

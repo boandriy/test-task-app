@@ -14,7 +14,15 @@ Frontend app
 npm install
 ```
 
-2. Run
+2. Create ``.env`` file
+
+```js
+{
+  VITE_BASE_URL=http://localhost:8080/api
+}
+```
+
+3. Run
 ``` bash
 npm run dev
 ```
